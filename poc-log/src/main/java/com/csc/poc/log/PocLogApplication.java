@@ -22,7 +22,16 @@ public class PocLogApplication {
     @RequestMapping(value = "/")
     public String index() {
         String msg = "Hello from Logging POC!";
-        LOG.info("URL: {}, MSG: {}", "/", msg);
+        
+        testLog(msg);
+        
         return msg;
+    }
+    
+    private void testLog(String msg) {
+        int batch = 100;
+        for (int i = 0; i < batch; i++) {
+            LOG.info("{}#{}", i, msg);
+        }
     }
 }
