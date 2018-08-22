@@ -1,4 +1,4 @@
-package com.csc.poc.log;
+package com.csc.logback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,19 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class PocLogApplication {
-    private static final Logger LOG = LoggerFactory.getLogger(PocLogApplication.class);
+public class PocLogbackKafkaApplication {
+    private static final Logger LOG = LoggerFactory.getLogger(PocLogbackKafkaApplication.class);
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		SpringApplication.run(PocLogbackKafkaApplication.class, args);
         
-        SpringApplication.run(PocLogApplication.class, args);
-        
-        LOG.info(PocLogApplication.class.getName() + " started!");
-    }
+        LOG.info(PocLogbackKafkaApplication.class.getName() + " started!");
+	}
     
     @RequestMapping(value = "/")
     public String index() {
-        String msg = "Welcome to Log4j2-Kafka POC!";
+        String msg = "Welcome to Logback-Kafka POC!";
         
         testLog(msg);
         

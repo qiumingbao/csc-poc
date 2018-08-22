@@ -3,4 +3,4 @@ server:
 
 spring:
   application:
-    name: poc-svc-logging
+    name: poc-log4j2-kafka
