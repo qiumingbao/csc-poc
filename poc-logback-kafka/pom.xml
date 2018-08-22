@@ -6,7 +6,7 @@
     <artifactId>poc-logback-kafka</artifactId>
 
     <name>poc-logback-kafka</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Logback-Kafka POC</description>
 
     <parent>
         <groupId>com.csc</groupId>

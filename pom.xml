@@ -16,7 +16,8 @@
     </parent>
 
     <modules>
-        <module>poc-log</module>
+        <module>poc-log4j2-kafka</module>
+        <module>poc-logback-kafka</module>
     </modules>
 
     <properties>

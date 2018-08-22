@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>poc-log</artifactId>
+    <artifactId>poc-log4j2-kafka</artifactId>
     <packaging>jar</packaging>
 
-    <name>poc-log</name>
-    <description>Poc Logging</description>
+    <name>poc-log4j2-kafka</name>
+    <description>Log4j2-Kafka POC</description>
 
     <parent>
         <groupId>com.csc</groupId>
