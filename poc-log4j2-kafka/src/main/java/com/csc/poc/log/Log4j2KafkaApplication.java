@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class PocLogApplication {
-    private static final Logger LOG = LoggerFactory.getLogger(PocLogApplication.class);
+public class Log4j2KafkaApplication {
+    private static final Logger LOG = LoggerFactory.getLogger(Log4j2KafkaApplication.class);
 
     public static void main(String[] args) {
         
-        SpringApplication.run(PocLogApplication.class, args);
+        SpringApplication.run(Log4j2KafkaApplication.class, args);
         
-        LOG.info(PocLogApplication.class.getName() + " started!");
+        LOG.info(Log4j2KafkaApplication.class.getName() + " started!");
     }
     
     @RequestMapping(value = "/")
@@ -31,7 +31,9 @@ public class PocLogApplication {
     private void testLog(String msg) {
         int batch = 100;
         for (int i = 0; i < batch; i++) {
-            LOG.info("{}#{}", i, msg);
+            if (LOG.isInfoEnabled()) {
+                LOG.info("{}#{}", i, msg);
+            }
         }
     }
 }

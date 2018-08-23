@@ -23,11 +23,10 @@ Configuration:
       Property:
         - name: bootstrap.servers
           value: 172.40.0.202:9092
-#          value: localhost:9092
 
   Loggers:
     Root:
-      level: info
+      level: warn
       AppenderRef:
         - ref: CONSOLE
         - ref: KAFKA

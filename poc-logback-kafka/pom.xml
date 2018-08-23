@@ -32,6 +32,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- @Kafka Appender -->
         <dependency>
             <groupId>com.github.danielwegener</groupId>
             <artifactId>logback-kafka-appender</artifactId>

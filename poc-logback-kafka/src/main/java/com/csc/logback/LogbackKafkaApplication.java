@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class PocLogbackKafkaApplication {
-    private static final Logger LOG = LoggerFactory.getLogger(PocLogbackKafkaApplication.class);
+public class LogbackKafkaApplication {
+    private static final Logger LOG = LoggerFactory.getLogger(LogbackKafkaApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(PocLogbackKafkaApplication.class, args);
+		SpringApplication.run(LogbackKafkaApplication.class, args);
         
-        LOG.info(PocLogbackKafkaApplication.class.getName() + " started!");
+        LOG.info(LogbackKafkaApplication.class.getName() + " started!");
 	}
     
     @RequestMapping(value = "/")
@@ -30,7 +30,9 @@ public class PocLogbackKafkaApplication {
     private void testLog(String msg) {
         int batch = 100;
         for (int i = 0; i < batch; i++) {
-            LOG.info("{}#{}", i, msg);
+            if (LOG.isInfoEnabled()) {
+                LOG.info("{}#{}", i, msg);
+            }
         }
     }
 }
