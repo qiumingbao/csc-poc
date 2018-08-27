@@ -29,6 +29,7 @@ public class LogbackKafkaApplication {
     
     private void testLog(String msg) {
         int batch = 100;
+        
         for (int i = 0; i < batch; i++) {
             if (LOG.isInfoEnabled()) {
                 LOG.info("{}#{}", i, msg);

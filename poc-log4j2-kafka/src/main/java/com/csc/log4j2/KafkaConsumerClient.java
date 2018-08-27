@@ -1,4 +1,4 @@
-package com.csc.poc.log;
+package com.csc.log4j2;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

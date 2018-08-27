@@ -1,4 +1,4 @@
-package com.csc.poc.log;
+package com.csc.log4j2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +31,11 @@ public class Log4j2KafkaApplication {
     private void testLog(String msg) {
         int batch = 100;
         for (int i = 0; i < batch; i++) {
+            try {
+                Thread.sleep(100L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if (LOG.isInfoEnabled()) {
                 LOG.info("{}#{}", i, msg);
             }
