@@ -1,15 +1,37 @@
 <configuration>
 
+    <property name="LOG_DIR" value="d:/tmp/logs"/>
+    <property name="LOG_NAME" value="poc-logback.log"/>
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <target>System.out</target>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+
     <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
         <target>System.err</target>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <immediateFlush>true</immediateFlush>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+        <file>${LOG_DIR}/${LOG_NAME}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/${LOG_NAME}.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeContext>true</includeContext>
+            <includeCallerData>true</includeCallerData>
+            <customFields>{"xt":"ceshixitong_ming"}</customFields>
+            <fieldNames class="net.logstash.logback.fieldnames.ShortenedFieldNames" />
         </encoder>
     </appender>
 
@@ -78,8 +100,9 @@
     </appender>
 
     <root level="info">
-        <!--<appender-ref ref="STDOUT"/>-->
-        <appender-ref ref="very-relaxed-and-fast-kafka-appender" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+        <!--<appender-ref ref="very-relaxed-and-fast-kafka-appender" />-->
         <!--<appender-ref ref="very-restrictive-kafka-appender" />-->
     </root>
 </configuration>
